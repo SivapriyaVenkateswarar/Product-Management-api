@@ -1,4 +1,3 @@
-// api/index.js
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -14,9 +13,9 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: ["https://your-frontend.vercel.app"], 
+  origin: ["https://product-management-api-aqi8.vercel.app"], 
   methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "x-client-key", "x-client-secret"]
+  allowedHeaders: ["Content-Type", "x-client-key", "x-client-secret", "Authorization"] 
 }));
 
 console.log("Mounting /api routes");

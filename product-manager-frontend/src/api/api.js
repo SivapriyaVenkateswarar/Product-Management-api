@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3001/api/products';
+const API_URL = 'https://product-management-api-luq3.vercel.app/api/products';
 
 export const saveJWT = (token) => localStorage.setItem('jwtToken', token);
 export const getJWT = () => localStorage.getItem('jwtToken');
@@ -9,12 +9,12 @@ const getHeaders = () => ({
   Authorization: `Bearer ${getJWT()}`,
 });
 
-export const loginAPI = async (clientKey, clientSecret) => {
-  // Example login endpoint
-  const res = await fetch('http://localhost:3001/api/login', {
+export const loginAPI = async (clientId, clientSecret) => {
+  // Updated login endpoint for Vercel
+  const res = await fetch('https://product-management-api-luq3.vercel.app/api/auth/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ clientKey, clientSecret }),
+    body: JSON.stringify({ clientId, clientSecret }),
   });
   if (!res.ok) throw new Error('Login failed');
   const data = await res.json();
